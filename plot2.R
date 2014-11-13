@@ -8,20 +8,18 @@ NEI_dt = data.table(NEI_df)
 plot_dt <- NEI_dt[ fips == 24510, sum(Emissions)/1000, by=year]
 setnames(plot_dt, "V1", "pollutants")
 
-
 graph <- function(data_dt) {
   fit <- lm(pollutants ~ year, data=data_dt)
   slope = round(fit$coef[2], digits=3)
 
-  plot(data_dt, main="Total Emissions of PM2.5 Pollutants in Baltimore over Time", 
+  plot(data_dt, main="Total Baltimore Emissions of PM2.5 Pollutants over Time", 
     ylab="PM2.5 Emissions (Kilotons)",ylim=c(0.0,5.0),xlim=c(1998,2009), pch=20)
   lines(data_dt$year, data_dt$pollutants)
   abline(fit, col="blue")
     legend("topright", 
-    legend = paste(c("Slope = ", slope ), collapse = " "),
+        legend = paste(c("Change = ", slope, "Kilotons/yr" ), collapse = " "),
     lty=1, # gives the legend appropriate symbols (lines)
     col="blue")
-
 }
 
 graph(plot_dt)
