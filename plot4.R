@@ -2,6 +2,8 @@ library("data.table")
 
 NEI_df <- readRDS("summarySCC_PM25.rds")
 SCC_df <- readRDS("Source_Classification_Code.rds")
+# subset of SCC_df which includes coal
+# take these values and subset NEI_df to include only coal sources
 
 NEI_dt = data.table(NEI_df)
 
@@ -12,10 +14,8 @@ graph <- function(data_dt) {
   fit <- lm(pollutants ~ year, data=data_dt)
   slope = round(fit$coef[2], digits=3)
 
-  plot(data_dt, main="Total US Emissions of PM2.5 Pollutants over Time",
-    ylab="PM2.5 Emissions (Megatons)",
-    xlab="Years Pollutants Measured",
-    ylim=c(3.0,8.0),xlim=c(1998,2009), 
+  plot(data_dt, main="US Coal Combustion Emissions of PM2.5 Pollutants over Time",
+    ylab="PM2.5 Emissions (Megatons)",ylim=c(3.0,8.0),xlim=c(1998,2009), 
     pch=20)
   lines(data_dt$year, data_dt$pollutants)
   abline(fit, col="blue")
@@ -33,4 +33,5 @@ graph(plot_dt)
 png(filename = "plot1.png", width = 480, height = 480)
 graph(plot_dt)
 dev.off()
+
 
