@@ -12,7 +12,7 @@ graph <- function(data_dt) {
   fit <- lm(pollutants ~ year, data=data_dt)
   slope = round(fit$coef[2], digits=3)
 
-  plot(data_dt, main="Total Baltimore Emissions of PM2.5 Pollutants over Time", 
+  plot(data_dt, main="Baltimore Emissions of PM2.5 Pollutants over Time", 
     ylab="PM2.5 Emissions (Kilotons)",ylim=c(0.0,5.0),xlim=c(1998,2009), pch=20)
   lines(data_dt$year, data_dt$pollutants)
   abline(fit, col="blue")
