@@ -24,7 +24,7 @@ graph <- function(data_dt) {
   # use a wrap grid for readability 
   # p <- p + facet_grid( . ~source ) 
   p <- p + facet_wrap( ~ source, scales="free" ) 
-  p <- p + ylab("PM2.5 Polluntants (Kilotons)") 
+  p <- p + ylab("PM2.5 Emissions (Kilotons)") 
   p <- p + xlab("Years Pollutants Measured")  
   p <- p + ggtitle( "Baltimore Emissions of PM2.5 Pollutants by Source over Time\n") 
 

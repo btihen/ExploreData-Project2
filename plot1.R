@@ -12,7 +12,7 @@ graph <- function(data_dt) {
   fit <- lm(pollutants ~ year, data=data_dt)
   slope = round(fit$coef[2], digits=3)
 
-  plot(data_dt, main="Total US Emissions of PM2.5 Pollutants over Time",
+  plot(data_dt, main="US Emissions of PM2.5 Pollutants over Time",
     ylab="PM2.5 Emissions (Megatons)",
     xlab="Years Pollutants Measured",
     ylim=c(3.0,8.0),xlim=c(1998,2009), 
