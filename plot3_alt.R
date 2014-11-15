@@ -21,8 +21,8 @@ graph <- function(dt) {
 
   g <- ggplot( dt, aes(year, pollutants, color=source) )
   p <- g + geom_point(size=2.5)
-  #p <- g + geom_point( aes(color = source), size=3.5, alpha=4/5)   
-  p <- p + geom_smooth(method ="lm", se=FALSE, size=1.5) 
+  #p <- g + geom_point( aes(color = source), size=6.5, alpha=4/5)   
+  p <- p + geom_smooth(method ="lm", se=FALSE, size=1.2) 
   p <- p + scale_colour_discrete(name  ="Source")
   p <- p + ylab("PM2.5 Emissions (Kilotons)") 
   p <- p + xlab("Years Pollutants Measured")  

@@ -3,7 +3,7 @@ library("data.table")
 NEI_df  <- readRDS("summarySCC_PM25.rds")
 SCC_df  <- readRDS("Source_Classification_Code.rds")
 mergedf <- merge( NEI_df, SCC_df, by.x="SCC", by.y="SCC", all=FALSE )
-mergedf <- mergedf[ order( fips ), ]
+mergedf <- mergedf[ order( mergedf$fips ), ]
 mergedt = data.table(mergedf)
 
 # plot_dt <- mergedt[ Short.Name %like% "Coal" , sum(Emissions)/1000, by=year ]
