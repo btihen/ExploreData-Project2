@@ -19,10 +19,9 @@ graph <- function(data_dt) {
     pch=20)
   lines(data_dt$year, data_dt$pollutants)
   abline(fit, col="blue")
-    legend("topright", 
-        legend = paste(c("Change = ", slope, "Kilotons/yr" ), collapse = " "),
-    lty=1, # gives the legend appropriate symbols (lines)
-    col="blue")
+  legend("topright", 
+    legend = paste(c("Change = ", slope, "Kilotons/year" ), collapse = " "),
+    lty=1, col="blue")
 }
 
 graph(plot_dt)

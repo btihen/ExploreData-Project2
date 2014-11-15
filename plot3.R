@@ -12,18 +12,11 @@ setnames(plot_dt, "type", "source")
 
 graph <- function(data_dt) {
 
-  # qplot(year, pollutants, data=data_dt, facets = . ~type,  # color=type
-  #   geom=c("point", "smooth"), method = "lm")
-    
   g <- ggplot( data_dt, aes(year, pollutants) )
-  # multiple colors are not needed with multiple graphs
-  # p <- g + geom_point( aes(color = source), size=2.5, alpha=3/4) 
-  # p <- p + scale_colour_discrete(name  ="Source Type")
   p <- g + geom_point()
-  p <- p + geom_smooth(method ="lm") 
-  # use a wrap grid for readability 
-  # p <- p + facet_grid( . ~source ) 
-  p <- p + facet_wrap( ~ source, scales="free" ) 
+  p <- p + geom_smooth(method ="lm", se=FALSE) 
+  #p <- p + facet_wrap( ~ source, scales="free" ) 
+  p <- p + facet_wrap( ~ source ) 
   p <- p + ylab("PM2.5 Emissions (Kilotons)") 
   p <- p + xlab("Years Pollutants Measured")  
   p <- p + ggtitle( "Baltimore Emissions of PM2.5 Pollutants by Source over Time\n") 
