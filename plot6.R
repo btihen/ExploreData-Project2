@@ -25,7 +25,8 @@ graph <- function(data_dt) {
 
   plot(data_dt$pollutants ~ data_dt$year, 
     main=title_text,
-    xlab="Sample Year", ylab="PM2.5 Emissions (Tons)",
+    xlab="Year Pollutants Measured", 
+    ylab="PM2.5 Emissions (Tons)",
     xlim=c(1998,2010), ylim=c(0.0,6000.0),
     pch=20)
   lines(data_dt$year, data_dt$pollutants)

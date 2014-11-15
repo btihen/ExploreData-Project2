@@ -14,8 +14,8 @@ graph <- function(data_dt) {
 
   plot(data_dt, main="US Emissions of PM2.5 Pollutants over Time",
     ylab="PM2.5 Emissions (Kilotons)",
-    xlab="Years Pollutants Measured",
-    xlim=c(1998,2009), ylim=c(0.0,10000.0),
+    xlab="Year Pollutants Measured",
+    xlim=c(1998,2010), ylim=c(0.0,10000.0),
     pch=20)
   lines(data_dt$year, data_dt$pollutants)
   abline(fit, col="blue")
@@ -23,14 +23,15 @@ graph <- function(data_dt) {
   lines(data_dt$year, data_dt$pollutants)
   abline(fit, col="blue")
     legend("topright", 
-    legend = paste(c("Change = ", slope, "Kilotons/year" ), collapse = " "),
+    legend = paste(c("Change =", slope, "Kilotons/year" ), collapse = " "),
     lty=1, # gives the legend appropriate symbols (lines)
     col="blue")
 }
-
+par(mfrow=c(1,1))
 graph(plot_dt)
 
 png(filename = "plot1.png", width = 480, height = 480)
+par(mfrow=c(1,1))
 graph(plot_dt)
 dev.off()
 
