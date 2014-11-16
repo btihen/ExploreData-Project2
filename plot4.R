@@ -31,10 +31,11 @@ graph <- function(data_dt) {
     lty=1, # gives the legend appropriate symbols (lines)
     col="blue")
 }
-
+par(mfrow=c(1,1))
 graph(plot_dt)
 
 png(filename = "plot4.png", width = 480, height = 480)
+par(mfrow=c(1,1))
 graph(plot_dt)
 dev.off()
 
